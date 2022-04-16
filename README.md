@@ -19,4 +19,4 @@ A workout journal app that is designed with a Django back-end and a REACT front-
 ![ERD image](prep/workout-erd.jpg)
 
 ## Wireframes
-![Wireframes](prep/Workout%20Journal%20-%20Wireframes.jpg)
+![Wireframes](prep/Workout-Journal-Wireframes.jpg)
