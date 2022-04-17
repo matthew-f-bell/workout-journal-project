@@ -37,6 +37,9 @@ class Exercises(models.Model):
     name = models.CharField(max_length=50)
     desription = models.CharField(max_length=250)
 
+    def __str__(self):
+        return self.name
+
 class Workouts(models.Model):
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
@@ -45,9 +48,15 @@ class Workouts(models.Model):
         through='Counts',
         through_fields=('workout', 'exercise')
         )
+    
+    def __str__(self):
+        return self.name
 
 class Counts(models.Model):
     workout = models.ForeignKey(Workouts, on_delete=models.CASCADE)
     exercise = models.ForeignKey(Exercises, on_delete=models.CASCADE)
     reps = models.IntegerField()
     sets = models.IntegerField()
+
+    def __str__(self):
+        return (self.workout+":"+self.exercise)
