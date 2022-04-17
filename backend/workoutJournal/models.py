@@ -13,51 +13,6 @@ from .managers import CustomUserManager
 
 # Create your models here.
 
-
-
-
-
-
-class Exercises(models.Model):
-    creator = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField()
-    desription = models.CharField()
-
-class Workouts(models.Model):
-    creator = models.ForeignKey(User, on_delete=models.CASCADE)
-    exercises = models.ManyToManyField(
-        Exercises,
-        through='Counts',
-        through_fields=('workout', 'exercise')
-        )
-
-class Counts(models.Model):
-    workout = models.ForeignKey(Workouts, on_delete=models.CASCADE)
-    exercise = models.ForeignKey(Exercises, on_delete=models.CASCADE)
-    reps = models.IntegerField()
-    sets = models.IntegerField()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(_('email address'), unique=True)
     first_name = models.CharField(max_length=50)
@@ -76,3 +31,23 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+class Exercises(models.Model):
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    desription = models.CharField(max_length=250)
+
+class Workouts(models.Model):
+    creator = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    exercises = models.ManyToManyField(
+        Exercises,
+        through='Counts',
+        through_fields=('workout', 'exercise')
+        )
+
+class Counts(models.Model):
+    workout = models.ForeignKey(Workouts, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(Exercises, on_delete=models.CASCADE)
+    reps = models.IntegerField()
+    sets = models.IntegerField()
