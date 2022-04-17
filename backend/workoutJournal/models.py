@@ -32,7 +32,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-class Exercises(models.Model):
+class Exercise(models.Model):
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     desription = models.CharField(max_length=250)
@@ -40,21 +40,21 @@ class Exercises(models.Model):
     def __str__(self):
         return self.name
 
-class Workouts(models.Model):
+class Workout(models.Model):
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     exercises = models.ManyToManyField(
-        Exercises,
-        through='Counts',
+        Exercise,
+        through='Count',
         through_fields=('workout', 'exercise')
         )
     
     def __str__(self):
         return self.name
 
-class Counts(models.Model):
-    workout = models.ForeignKey(Workouts, on_delete=models.CASCADE)
-    exercise = models.ForeignKey(Exercises, on_delete=models.CASCADE)
+class Count(models.Model):
+    workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     reps = models.IntegerField()
     sets = models.IntegerField()
 
