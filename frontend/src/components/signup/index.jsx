@@ -3,7 +3,7 @@ const SignUp = () => {
         <div>
             <div>
                 <h2>Sign-Up Page</h2>
-                <form action="post">
+                <form method="post">
                     <label for="email">
                         email
                     </label>
