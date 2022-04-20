@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from "react"
 import axios from "axios"
+import NavBar from './components/navbar';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
   return (
     <div className="App">
+      <NavBar/>
       <div>
         <p> {exerciseList.map((e) => {
           return(
