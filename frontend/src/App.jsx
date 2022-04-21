@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import axios from "axios"
-import NavBar from './components/navbar';
-import SignUp from "./components/signup";
+import HomePage from "./pages/homepage"
 
 
 function App() {
@@ -20,8 +20,11 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
-      <SignUp />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
