@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import axios from "axios"
 import NavBar from './components/navbar';
 import SignUp from "./components/signup";
@@ -20,7 +21,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar/>
+      {/* <NavBar/>
       <SignUp />
       <div>
         <p> {exerciseList.map((e) => {
@@ -31,7 +32,12 @@ function App() {
             </div>
           )
         })} </p>
-      </div>
+      </div> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<NavBar/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
