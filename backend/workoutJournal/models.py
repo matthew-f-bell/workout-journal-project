@@ -35,7 +35,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 class Exercise(models.Model):
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    desription = models.CharField(max_length=250)
+    description = models.CharField(max_length=250)
 
     def __str__(self):
         return self.name
