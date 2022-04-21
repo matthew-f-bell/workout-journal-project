@@ -22,16 +22,6 @@ function App() {
     <div className="App">
       <NavBar/>
       <SignUp />
-      <div>
-        <p> {exerciseList.map((e) => {
-          return(
-            <div>
-              <p> {e.name}</p>
-              <p> {e.description}</p>
-            </div>
-          )
-        })} </p>
-      </div>
     </div>
   );
 }
