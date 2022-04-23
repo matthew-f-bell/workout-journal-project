@@ -6,3 +6,5 @@ const tellWorkoutTo = axios.create({
         "content-type": "application/json"
     },
 });
+
+export default tellWorkoutTo;

@@ -1,6 +1,14 @@
+import { Link, Routes, Route } from "react-router-dom";
 import SearchBar from "../searchbar";
+import { useEffect } from "react";
+import WorkoutList from "../workoutlist";
 
-const NavBar = () => {
+
+const NavBar = ({ fetchAllExercises, exercises }) => {
+
+    const handleExercises = async() => {
+        await fetchAllExercises();
+    }
     return (
         <>
             <nav>
@@ -8,12 +16,15 @@ const NavBar = () => {
                 <a href="">Home</a>
                 <SearchBar/>
                 <a href="">Profile</a>
-                <a href="">Workouts</a>
+                <Link to="/workouts" onClick={handleExercises}>
+                    Workouts
+                </Link>
                 <a href="">Groups</a>
                 <a href="">Logout</a>
             </nav>
+
         </>
-    )
-}
+    );
+};
 
 export default NavBar;
