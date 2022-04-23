@@ -5,23 +5,23 @@ const workouts = "/workouts";
 
 
 const getAll = () => {
-    return tellWorkoutTo.get(`${workouts}`);
+    return tellWorkoutTo.get(`${workouts}/`);
 };
 
 const get = (id) => {
-    return tellWorkoutTo.get(`${workouts}/${id}`);
+    return tellWorkoutTo.get(`${workouts}/${id}/`);
 };
 
 const create = (data) => {
-    return tellWorkoutTo.post(`${workouts}`, data);
+    return tellWorkoutTo.post(`${workouts}/`, data);
 };
 
 const update = (id, data) => {
-    return tellWorkoutTo.put(`${workouts}/${id}`, data);
+    return tellWorkoutTo.put(`${workouts}/${id}/`, data);
 };
 
 const destroy = (id) => {
-    return tellWorkoutTo.delete(`${workouts}/${id}`);
+    return tellWorkoutTo.delete(`${workouts}/${id}/`);
 };
 
 
