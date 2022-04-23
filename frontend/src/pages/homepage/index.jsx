@@ -1,4 +1,5 @@
 import NavBar from "../../components/navbar";
+import Profile from "../../components/profile";
 
 const HomePage = () => {
 
