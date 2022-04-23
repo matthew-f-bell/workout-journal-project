@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from "./pages/homepage"
+import WorkoutList from './pages/workoutlist';
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage/>}/>
-          <Route path="/workouts" />!
+          <Route path="/workouts" element={<WorkoutList/>}/>!
         </Routes>
       </BrowserRouter>
     </div>

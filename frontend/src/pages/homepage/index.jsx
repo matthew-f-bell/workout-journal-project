@@ -1,8 +1,4 @@
-import { useEffect, useReducer } from "react";
-
 import NavBar from "../../components/navbar";
-import WorkoutList from "../../components/workoutlist";
-
 
 const HomePage = () => {
 
@@ -10,7 +6,6 @@ const HomePage = () => {
         <>
             <NavBar />
             <h1>Home Page</h1>
-            <WorkoutList />
         </>
     )
 }
