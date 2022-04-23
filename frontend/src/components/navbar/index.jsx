@@ -1,7 +1,6 @@
 import { Link, Routes, Route } from "react-router-dom";
 import SearchBar from "../searchbar";
 import { useEffect } from "react";
-import WorkoutList from "../workoutlist";
 
 
 const NavBar = ({ fetchAllExercises, exercises }) => {
@@ -13,7 +12,7 @@ const NavBar = ({ fetchAllExercises, exercises }) => {
         <>
             <nav>
                 {/* Logo for home page? */}
-                <a href="">Home</a>
+                <a href="/">Home</a>
                 <SearchBar/>
                 <a href="">Profile</a>
                 <Link to="/workouts" onClick={handleExercises}>

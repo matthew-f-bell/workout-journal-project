@@ -1,7 +1,7 @@
 import React from "react";
 import { string } from "prop-types";
 
-const WorkoutList = (props) => {
+const Workout = (props) => {
     return (
         // <div>
         //     <h1>Workouts</h1>
@@ -23,4 +23,4 @@ const WorkoutList = (props) => {
     )
 }
 
-export default WorkoutList;
+export default Workout;
