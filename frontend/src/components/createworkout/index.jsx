@@ -1,3 +1,7 @@
+import React from "react";
+import { WorkoutDataService } from "../../api/workout.service";
+
+
 const CreateWorkout = () => {
     return (
         <>

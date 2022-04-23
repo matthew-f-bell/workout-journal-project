@@ -1,7 +1,7 @@
 const CreateExercise = () => {
     return (
         <>
-            <h2>Create Workout</h2>
+            <h2>Create Exercise</h2>
             <form action="post">
                 <label for="name">Name</label>
                 <input type="text" name="name"/>
