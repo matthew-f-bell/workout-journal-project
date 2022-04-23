@@ -14,7 +14,7 @@ const NavBar = ({ fetchAllExercises, exercises }) => {
                 {/* Logo for home page? */}
                 <a href="/">Home</a>
                 <SearchBar/>
-                <a href="">Profile</a>
+                <a href="/profile">Profile</a>
                 <Link to="/workouts" onClick={handleExercises}>
                     Workouts
                 </Link>

@@ -1,4 +1,4 @@
-const ProfilePage = () => {
+const Profile = () => {
     return (
         <div>
             <img src="" alt="profile picture" />
@@ -11,4 +11,4 @@ const ProfilePage = () => {
     )
 }
 
-export default ProfilePage;
+export default Profile;
