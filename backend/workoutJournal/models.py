@@ -59,4 +59,4 @@ class Count(models.Model):
     sets = models.IntegerField()
 
     def __str__(self):
-        return (self.workout+":"+self.exercise)
+        return (self.workout.name+":"+self.exercise.name)
