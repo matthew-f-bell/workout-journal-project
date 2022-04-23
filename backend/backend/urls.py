@@ -21,6 +21,8 @@ from workoutJournal import views
 router = routers.DefaultRouter()
 router.register(r'exercises', views.ExerciseView, 'exercise')
 router.register(r'workouts', views.WorkoutView, 'workout')
+router.register(r'users', views.UserView, 'user')
+router.register(r'counts', views.CountView, 'count')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
