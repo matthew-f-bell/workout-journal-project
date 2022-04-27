@@ -1,6 +1,9 @@
 import React from "react";
+import * as countService from "../../api/count.service"
 
 const Workout = (props) => {
+    
+
     return (
         <>
             <div className="top-workout-div">
@@ -11,7 +14,7 @@ const Workout = (props) => {
                     </div>
                     <h2>Exercises:</h2>
                     {props.exercises.map((exercise) => {
-                        
+
                     })}
                     {/* <div className="workout-description-txt">
                         <p>{props.description}</p>
