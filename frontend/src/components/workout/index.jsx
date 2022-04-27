@@ -1,12 +1,8 @@
-import React from "react";
-import { string } from "prop-types";
+import React, { useEffect, useState } from "react";
+import Exercise from "../exercise"
 
 const Workout = (props) => {
     return (
-        // <div>
-        //     <h1>Workouts</h1>
-        //     <span><a href="">(Workout Names)</a></span>
-        // </div>
         <>
             <div className="top-workout-div">
                 <div className="workout-container">
@@ -14,9 +10,17 @@ const Workout = (props) => {
                         <h2 className="workout-name-txt">{props.name}</h2>
                         <h3 className="workout-creator-txt">{props.creator}</h3>
                     </div>
-                    <div className="workout-description-txt">
+                    <h2>Exercises:</h2>
+                    {props.exercises.map((exercise) => {
+                        return (
+                            <>
+                                <Exercise exerciseID={exercise.exercise} sets={exercise.sets} reps={exercise.reps} />
+                            </>
+                        )
+                    })}
+                    {/* <div className="workout-description-txt">
                         <p>{props.description}</p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </>
