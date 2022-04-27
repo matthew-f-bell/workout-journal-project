@@ -1,19 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Exercise from "../exercise"
 
 const Workout = (props) => {
-    const [exerciseList] = useState([])
-
-    const getExercises = async () => {
-        props.exercises.forEach(element => console.log(element))
-
-    }
-
-    //console.log(exerciseList)
-    
-    useEffect(() => {
-        getExercises()
-    }, [])
-
     return (
         <>
             <div className="top-workout-div">
@@ -24,7 +12,12 @@ const Workout = (props) => {
                     </div>
                     <h2>Exercises:</h2>
                     {props.exercises.map((exercise) => {
-
+                        {console.log(exercise)}
+                        return (
+                            <>
+                                <Exercise />
+                            </>
+                        )
                     })}
                     {/* <div className="workout-description-txt">
                         <p>{props.description}</p>
