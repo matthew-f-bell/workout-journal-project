@@ -25,8 +25,8 @@ router.register(r'users', views.UserView, 'user')
 router.register(r'counts', views.CountView, 'count')
 
 # Auth routers
-router.register(r'auth/login', views.LoginViewSet, basename='auth-login')
-router.register(r'auth/register', views.RegistrationViewSet, basename='auth-register')
+router.register(r'auth/login', views.LoginViewSet, 'auth-login')
+router.register(r'auth/register', views.RegistrationViewSet, 'auth-register')
 
 
 urlpatterns = [

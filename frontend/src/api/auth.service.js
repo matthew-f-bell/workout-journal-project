@@ -5,7 +5,7 @@ const users = "/users";
 
 const register = (email, password) => {
     return tellWorkoutTo
-        .post(`${auth}/register`, {email, password})
+        .post(`${auth}/register/`, {email, password})
         .then((res) => {
             console.log(res)
         })
@@ -14,7 +14,7 @@ const register = (email, password) => {
 const login = (email, password) => {
     try {
         return tellWorkoutTo
-            .post(`${auth}/login`, {email, password})
+            .post(`${auth}/login/`, {email, password})
             .then((res) => {
                 console.log(res)
                 if(res.data.token) {
