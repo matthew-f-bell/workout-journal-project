@@ -1,4 +1,3 @@
-from gpg import Data
 from rest_framework import serializers
 from .models import Count, User, Exercise, Workout
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
@@ -44,7 +43,7 @@ class RegisterSerializer(UserSerializer):
 
     class Meta: 
         model = User
-        fields = ['id', 'user', 'email', 'password']
+        fields = ['id', 'email', 'password']
 
     def create(self, validated_data):
         try:
