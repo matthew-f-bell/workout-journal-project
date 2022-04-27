@@ -12,10 +12,9 @@ const Workout = (props) => {
                     </div>
                     <h2>Exercises:</h2>
                     {props.exercises.map((exercise) => {
-                        {console.log(exercise)}
                         return (
                             <>
-                                <Exercise />
+                                <Exercise exerciseID={exercise.exercise} sets={exercise.sets} reps={exercise.reps} />
                             </>
                         )
                     })}
