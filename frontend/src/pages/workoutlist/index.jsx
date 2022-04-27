@@ -21,7 +21,6 @@ const WorkoutList = () => {
         <>
             <NavBar/>
             <h1>Workout List</h1>
-            {console.log(workouts)}
             {workouts.map((workout) => {
                 return (
                     <>

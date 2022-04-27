@@ -1,8 +1,18 @@
-import React from "react";
-import * as countService from "../../api/count.service"
+import React, { useEffect, useState } from "react";
 
 const Workout = (props) => {
+    const [exerciseList] = useState([])
+
+    const getExercises = async () => {
+        props.exercises.forEach(element => console.log(element))
+
+    }
+
+    //console.log(exerciseList)
     
+    useEffect(() => {
+        getExercises()
+    }, [])
 
     return (
         <>

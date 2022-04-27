@@ -14,15 +14,17 @@ class ExerciseSerializer(serializers.ModelSerializer):
         model = Exercise
         fields = ('id', 'creator', 'name', 'description')
 
-class WorkoutSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Workout
-        fields = ('id', 'creator', 'name', 'exercises')
-
 class CountSerializer(serializers.ModelSerializer):
     class Meta:
         model = Count
         fields = ('id', 'workout', 'exercise', 'reps', 'sets')
+
+class WorkoutSerializer(serializers.ModelSerializer):
+    Exercises = CountSerializer(source='count_set', many=True)
+
+    class Meta:
+        model = Workout
+        fields = ('id', 'creator', 'name', 'Exercises')
 
 class LoginSerializer(TokenObtainPairSerializer):
 
