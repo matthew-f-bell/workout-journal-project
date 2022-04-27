@@ -25,7 +25,7 @@ const WorkoutList = () => {
             {workouts.map((workout) => {
                 return (
                     <>
-                        <Workout name={workout.name}/>
+                        <Workout name={workout.name} creator={workout.creator} exercises={workout.exercises}/>
                     </>
                 )
             })}
