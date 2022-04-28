@@ -21,10 +21,14 @@ class CountSerializer(serializers.ModelSerializer):
 
 class WorkoutSerializer(serializers.ModelSerializer):
     Exercises = CountSerializer(source='count_set', many=True)
+    Creator = serializers.SerializerMethodField()
 
     class Meta:
         model = Workout
-        fields = ('id', 'creator', 'name', 'Exercises')
+        fields = ('id', 'Creator', 'name', 'Exercises')
+    
+    def get_Creator(self, obj):
+        return {'id': obj.creator.id, 'first_name': obj.creator.first_name, 'last_name': obj.creator.last_name}
 
 class LoginSerializer(TokenObtainPairSerializer):
 
