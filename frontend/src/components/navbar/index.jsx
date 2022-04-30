@@ -3,11 +3,8 @@ import SearchBar from "../searchbar";
 import { useEffect } from "react";
 
 
-const NavBar = ({ fetchAllExercises, exercises }) => {
+const NavBar = () => {
 
-    const handleExercises = async() => {
-        await fetchAllExercises();
-    }
     return (
         <>
             <nav>
@@ -15,7 +12,7 @@ const NavBar = ({ fetchAllExercises, exercises }) => {
                 <a href="/">Home</a>
                 <SearchBar/>
                 <a href="/profile">Profile</a>
-                <Link to="/workouts" onClick={handleExercises}>
+                <Link to="/workouts">
                     Workouts
                 </Link>
                 <a href="">Groups</a>
