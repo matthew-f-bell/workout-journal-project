@@ -38,7 +38,9 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'workoutjournal-backend.herokuapp.com'
+    'workoutjournal-backend.herokuapp.com',
+    '127.0.0.1',
+    'http://localhost:3000',
 ]
 
 
@@ -154,5 +156,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'https://workoutjournal-frontend.herokuapp.com',
-    'http://workoutjournal-frontend.herokuapp.com'
+    'http://workoutjournal-frontend.herokuapp.com',
+    '127.0.0.1'
 ]
