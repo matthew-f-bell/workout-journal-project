@@ -18,7 +18,7 @@ import dj_database_url
 from dotenv import load_dotenv
 load_dotenv()
 
-DEPLOYMENT = True
+DEPLOYMENT = False
 
 if DEPLOYMENT:
     DATABASE_URL = os.environ['DATABASE_URL']
@@ -38,6 +38,8 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
     'workoutjournal-backend.herokuapp.com'
 ]
 
