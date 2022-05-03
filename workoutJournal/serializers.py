@@ -64,37 +64,23 @@ class RegisterSerializer(UserSerializer):
         return user
 
 class UpdateUserSerializer(serializers.ModelSerializer):
-    email = serializers.EmailField(required=True)
-
+    user = UserSerializer()
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email', 'user_height', 'user_weight', 'image')
-        extra_kwargs = {
-            'first_name': {'required': False},
-            'last_name': {'required': False},
-            'user_height': {'required': False},
-            'user_weight': {'required': False},
-            'image': {'required': False},
-        }
-
-    def validate_email(self, value):
-        user = self.context['request'].user
-        if User.objects.exclude(pk=user.pk).filter(email=value).exists():
-            raise serializers.ValidationError({"email": "This email is already in use."})
-        return value
-
 
     def update(self, instance, validated_data):
-        user = self.context['request'].user
-        
-        if user.pk != instance.pk:
-            raise serializers.ValidationError({"authorize": "You dont have permission for this user."})
-        
-        instance.first_name = validated_data['first_name']
-        instance.last_name = validated_data['last_name']
-        instance.email = validated_data['email']
-        instance.username = validated_data['username']
-
-        instance.save()
-
-        return instance
+        # We try to get profile data
+        user_data = validated_data.pop('user', None)
+        # If we have one
+        if user_data is not None:
+            # We set address, assuming that you always set address
+            # if you provide user
+            instance.user.first_name = user_data['first_name']
+            instance.user.last_name = user_data['last_name']
+            instance.user.user_height = user_data['user_height']
+            instance.user.user_weight = user_data['user_weight']
+            instance.user.image = user_data['image']
+            instance.user.save()
+        # Rest will be handled by DRF
+        return super().update(instance, validated_data)

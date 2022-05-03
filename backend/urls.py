@@ -35,5 +35,5 @@ router.register(r'auth/register', views.RegistrationViewSet, 'auth-register')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
 ]

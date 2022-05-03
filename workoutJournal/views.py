@@ -62,7 +62,7 @@ class UserDetail(viewsets.ModelViewSet, RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-class UserUpdate(ModelViewSet, RetrieveUpdateAPIView):
+class UserUpdate(viewsets.ModelViewSet):
     # API endpoint that allows a User record to be updated.
     queryset = User.objects.all()
     serializer_class = UpdateUserSerializer
