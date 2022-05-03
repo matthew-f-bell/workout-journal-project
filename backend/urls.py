@@ -21,7 +21,10 @@ from workoutJournal import views
 router = routers.DefaultRouter()
 router.register(r'exercises', views.ExerciseView, 'exercise')
 router.register(r'workouts', views.WorkoutView, 'workout')
+router.register(r'workouts/profile/<int:pk>', views.WorkoutView, 'workout-profile')
 router.register(r'users', views.UserView, 'user')
+router.register(r'users/<int:pk>', views.UserDetail, 'user-detail')
+router.register(r'users/update/<int:pk>', views.UserUpdate, 'user-update')
 router.register(r'counts', views.CountView, 'count')
 
 # Auth routers
@@ -29,7 +32,8 @@ router.register(r'auth/login', views.LoginViewSet, 'auth-login')
 router.register(r'auth/register', views.RegistrationViewSet, 'auth-register')
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('api/', include(router.urls)),
 ]
