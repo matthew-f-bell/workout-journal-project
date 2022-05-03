@@ -18,12 +18,23 @@ class ExerciseView(viewsets.ModelViewSet):
 
 class WorkoutView(viewsets.ModelViewSet):
     serializer_class = WorkoutSerializer
+    # serializer_classes = {
+    #     'count': CountSerializer,
+    #     'exercise': ExerciseSerializer,
+    # }
+    #default_serializer_class = WorkoutSerializer
+
+    # def get_serializer_class(self):
+    #     return self.serializer_classes.get(self.action, self.default_serializer_class)
+
     queryset = Workout.objects.all()
 
-    def post(request):
-        workout_serializer = WorkoutSerializer(data=request.data)
-        if workout_serializer.is_valid():
-            workout = workout_serializer.save()
+    def create(self, request, *args, **kwargs):
+        data = request.data
+        new_workout = Workout.objects.create(name=data['name'], creator=User.objects.get(id=data['creator']))
+        new_workout.save()
+        serializer=WorkoutSerializer(new_workout)
+        return Response(serializer.data)
 
 class CountView(viewsets.ModelViewSet):
     serializer_class = CountSerializer

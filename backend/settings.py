@@ -38,9 +38,9 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'workoutjournal-backend.herokuapp.com',
     '127.0.0.1',
-    'http://localhost:3000',
+    'localhost',
+    'workoutjournal-backend.herokuapp.com'
 ]
 
 
