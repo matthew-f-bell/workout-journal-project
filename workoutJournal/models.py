@@ -55,8 +55,8 @@ class Workout(models.Model):
 class Count(models.Model):
     workout = models.ForeignKey(Workout, on_delete=models.CASCADE)
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
-    reps = models.IntegerField()
-    sets = models.IntegerField()
+    reps = models.IntegerField(default=0)
+    sets = models.IntegerField(default=0)
 
     def __str__(self):
         return (self.workout.name+":"+self.exercise.name)
