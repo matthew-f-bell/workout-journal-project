@@ -9,6 +9,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.exceptions import TokenError, InvalidToken
 from rest_framework.generics import RetrieveAPIView, RetrieveUpdateAPIView
+import json
 
 # Create your views here.
 
@@ -33,8 +34,9 @@ class WorkoutView(viewsets.ModelViewSet):
         data = request.data
         new_workout = Workout.objects.create(name=data['name'], creator=User.objects.get(id=data['creator']))
         new_workout.save()
-
-        for exercise in data['Exercises']:
+        print("test")
+        print(json.loads(request.POST.get('Exercises')))
+        for exercise in json.loads(request.POST.get('Exercises')):
             exercise_obj = Exercise.objects.get(id=exercise['id'])
             new_workout.exercises.add(exercise_obj)
             count_obj = Count.objects.get(workout=new_workout.id)
