@@ -33,6 +33,15 @@ class WorkoutView(viewsets.ModelViewSet):
         data = request.data
         new_workout = Workout.objects.create(name=data['name'], creator=User.objects.get(id=data['creator']))
         new_workout.save()
+
+        for exercise in data['Exercises']:
+            exercise_obj = Exercise.objects.get(id=exercise['id'])
+            new_workout.exercises.add(exercise_obj)
+            count_obj = Count.objects.get(workout=new_workout.id)
+            count_obj.reps = exercise['reps']
+            count_obj.sets = exercise['sets']
+            count_obj.save()
+
         serializer=WorkoutSerializer(new_workout)
         return Response(serializer.data)
 
