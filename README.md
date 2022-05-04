@@ -1,7 +1,7 @@
 # workout-journal-project
 A workout journal app that is designed with a Django back-end and a REACT front-end
 
-
+[Link to the Front End](https://github.com/matthew-f-bell/workout-journal-front)
 
 ## User Stories
 * As A User, I want to be able to login
